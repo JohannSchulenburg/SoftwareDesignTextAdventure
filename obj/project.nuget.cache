@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/z8PTk3A9ipBHq+FOItvA8ekByP7MkqKNqnG0f8czYoz2B6Ty7vgl50JiOVpQ0SnT2ajMQnAF2DVS7F6AmMs2g==",
+  "dgSpecHash": "bJob8Pu5e8mZHist57vfEwW+iJx4DMeBmAZqhndhjLwogmzQtToZZDirfOXiJTPYSglhQIsrTpCXJ97F15fIHw==",
   "success": true,
   "projectFilePath": "D:\\Programmieren\\Github\\SoftwareDesignTextAdventure\\SoftwareDesignTextAdventure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\josch\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -14,3 +14,5 @@ D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDes
 D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\ref\SoftwareDesignTextAdventure.dll
 D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.pdb
 D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.genruntimeconfig.cache
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.csproj.CopyComplete
