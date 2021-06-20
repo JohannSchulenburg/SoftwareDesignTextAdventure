@@ -1,0 +1,16 @@
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\SoftwareDesignTextAdventure.exe
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\SoftwareDesignTextAdventure.deps.json
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\SoftwareDesignTextAdventure.runtimeconfig.json
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\SoftwareDesignTextAdventure.runtimeconfig.dev.json
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\SoftwareDesignTextAdventure.dll
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\ref\SoftwareDesignTextAdventure.dll
+D:\Programmieren\Github\SoftwareDesignTextAdventure\bin\Debug\net5.0\SoftwareDesignTextAdventure.pdb
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.csprojAssemblyReference.cache
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.AssemblyInfoInputs.cache
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.AssemblyInfo.cs
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.csproj.CoreCompileInputs.cache
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.dll
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\ref\SoftwareDesignTextAdventure.dll
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.pdb
+D:\Programmieren\Github\SoftwareDesignTextAdventure\obj\Debug\net5.0\SoftwareDesignTextAdventure.genruntimeconfig.cache
