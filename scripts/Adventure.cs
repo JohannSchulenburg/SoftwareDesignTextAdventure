@@ -7,6 +7,7 @@ namespace SoftwareDesignTextAdventure
     {
         public string title {get; set;}
         public string[,] map {get; set;}
+        public string createdBy;
 
         public Adventure(){}
         public Adventure(string title, int x, int y){
