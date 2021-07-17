@@ -1,14 +1,37 @@
 [
   {
-    "username": "john",
-    "password": "1808"
+    "username": "mark",
+    "password": "rosewater",
+    "uuid": "ad09e415-aad7-4ad8-ae51-15e936982baa"
+  },
+  {
+    "username": "axel",
+    "password": "schweiß",
+    "uuid": "9d7ac0e6-ee95-4fe5-9dbf-6047b6dbc079"
   },
   {
     "username": "max",
-    "password": "0802"
+    "password": "eberhart",
+    "uuid": "64f76c9c-f881-44ad-b19d-987cd1ee6979"
   },
   {
-    "username": "kai",
-    "password": "1410"
+    "username": "my",
+    "password": "friend",
+    "uuid": "98e729dc-bc0f-4b09-87d4-86e6de356d23"
+  },
+  {
+    "username": "pass",
+    "password": "word",
+    "uuid": "ef376610-1194-44ea-80e9-ec1fa61fead9"
+  },
+  {
+    "username": "admin",
+    "password": "",
+    "uuid": "b210a3ba-2e47-4d6b-a611-0ff95b34f808"
+  },
+  {
+    "username": "",
+    "password": "",
+    "uuid": "549b4824-7cd3-47b9-af79-60bd066450f0"
   }
 ]

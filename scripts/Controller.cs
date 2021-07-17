@@ -1,37 +1,56 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Threading;
 using System;
-using Newtonsoft.Json;
-namespace SoftwareDesignTextAdventure.scripts
+
+
+namespace SoftwareDesignTextAdventure
 {
-    public static class Controller
+    public class Controller
     {
+        public static Controller instance;
+        public static iUser currentUser;
         static void Main(string[] args)
         {
-            List<User> userList = new List<User>();
-            User john = new User("john", "1808");
-            User max = new User("max", "0802");
-            User kai = new User("kai", "1410");
-            userList.Add(john);
-            userList.Add(max);
-            userList.Add(kai);
-            string json = JsonConvert.SerializeObject(userList, Formatting.Indented);
-            File.WriteAllText(@"data\UserData.json", json);
-            Guest hi = new Guest();
-            hi.signIn("kai", "110");
-        } 
-
-        static void jsonWriteTest()
-        {
-            List<Adventure> adventureList = new List<Adventure>();
-            Adventure dnd = new Adventure("DnD", 5, 6);
-            Adventure scifi = new Adventure("Scifi", 3, 3);
-            adventureList.Add(dnd);
-            adventureList.Add(scifi);
-            string adventureJson = JsonConvert.SerializeObject(adventureList, Formatting.Indented);            
-            File.WriteAllText(@"data\AdventureData.json", adventureJson);
+            initialize();
+            instance.mainMenu();
+        }
+        private static void initialize(){
+            instance = new Controller();
+            currentUser = new NullUser();
+        }
+        private void mainMenu(){
+            clear(2000);
+            Console.WriteLine("Main Menu                                            Current User: "+currentUser.username);
+            Console.WriteLine();
+            Console.WriteLine("Would you like to: 'sign in', 'sign up', 'search adventure' or 'show adventures'?");
+            Console.WriteLine("Note: 'create adventure' is reserved for members only");
+            Console.WriteLine();
+            String optionChosen = Console.ReadLine();
+            clear(1000);
+            switch (optionChosen)
+            {
+                case "sign in":
+                    currentUser.signIn();
+                    break;
+                case "sign up":
+                    currentUser.signUp();
+                    break;
+                case "search adventure":
+                    currentUser.searchAdventure();
+                    break;
+                case "show adventures":
+                    currentUser.showAdventures();
+                    break;
+                case "create adventure":
+                    currentUser.createAdventure();
+                    break;
+                default:
+                    return;
+            }
+            instance.mainMenu();
+        }
+        public void clear(int number){
+            Thread.Sleep(number);
+            Console.Clear();
         }
     }
 }

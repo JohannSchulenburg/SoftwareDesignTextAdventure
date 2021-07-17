@@ -1,0 +1,10 @@
+Diagrams:
+1. UseCase
+2. Aktivitätsdiagramm von einem UseCase
+3. Klassendiagramm
+
+Needs to be included:
+2 Designpatterns
+1 Regular Expression
+1 Unit Test
+Kapitel 4 "Clean Code"
