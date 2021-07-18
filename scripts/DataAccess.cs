@@ -27,6 +27,17 @@ namespace SoftwareDesignTextAdventure
             }
             return new NullUser();
         }
+        public static void addAdventure(Adventure adventure){
+            String jsonData = System.IO.File.ReadAllText("./data/AdventureData.json");
+            List<Adventure> adventureList = JsonConvert.DeserializeObject<List<Adventure>>(jsonData);
+            if(adventureList == null){
+                adventureList = new List<Adventure>();
+
+            }
+            adventureList.Add(adventure);
+            jsonData = JsonConvert.SerializeObject(adventureList,Formatting.Indented);
+            System.IO.File.WriteAllText("./data/AdventureData.json", jsonData);
+        }
         public static Adventure getAdventure(String title){
             string jsonData = File.ReadAllText(@"data\AdventureData.json");
             List<Adventure> adventureList = JsonConvert.DeserializeObject<List<Adventure>>(jsonData);
@@ -35,18 +46,25 @@ namespace SoftwareDesignTextAdventure
                     return adv;
                 }
             }
-            return new Adventure();
+            return null;
+        }
+        public static bool updateAdventure(Adventure adventure){
+            string jsonData = File.ReadAllText(@"data\AdventureData.json");
+            List<Adventure> adventureList = JsonConvert.DeserializeObject<List<Adventure>>(jsonData);
+            foreach(Adventure adv in adventureList){
+                if(adv.title.Equals(adventure.title)){
+                    adventureList.Remove(adv);
+                    adventureList.Add(adventure);
+                    jsonData = JsonConvert.SerializeObject(adventureList,Formatting.Indented);
+                    System.IO.File.WriteAllText("./data/AdventureData.json", jsonData);
+                    return true;
+                }
+            }
+            return false;
         }
         public static List<Adventure> getAdventureList(){
             string allAdventureText = File.ReadAllText(@"data\AdventureData.json");
             return JsonConvert.DeserializeObject<List<Adventure>>(allAdventureText);
-        }
-        public static void addAdventure(Adventure adventure){
-            String jsonData = System.IO.File.ReadAllText("./data/AdventureData.json");
-            List<Adventure> adventureList = JsonConvert.DeserializeObject<List<Adventure>>(jsonData);
-            adventureList.Add(adventure);
-            jsonData = JsonConvert.SerializeObject(adventureList,Formatting.Indented);
-            System.IO.File.WriteAllText("./data/AdventureData.json", jsonData);
         }
         public static String createUUID(){
             Guid uuid = Guid.NewGuid();

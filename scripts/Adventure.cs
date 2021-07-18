@@ -4,24 +4,22 @@ namespace SoftwareDesignTextAdventure
 {
     public class Adventure
     {
-        public string title {get; set;}
-        public string[,] map {get; set;}
+        public string title;
+        public string[,] map;
         public int[] startingPoint;
         public string createdBy;
+        public int[] size;
+        public Statistic statistic;
 
-        public Adventure(){}
-        public Adventure(string title, int x, int y){
-            this.title = title;
-            this.map = new string[x,y];
-        }
-        public Adventure(string title, string[,] map, string createdBy, int[] startingPoint){
+        public Adventure(string title, string[,] map, string createdBy, int[] startingPoint, int[] size){
             this.title = title;
             this.map = map;
             this.createdBy = createdBy;
             this.startingPoint = startingPoint;
+            this.size = size;
+            this.statistic = new Statistic();
         }
         public void read(int[] position){
-            //Console.WriteLine(this.title);
             Console.WriteLine(this.map[position[0],position[1]]);
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 namespace SoftwareDesignTextAdventure
 {
     public class NullUser : iUser
@@ -39,14 +40,32 @@ namespace SoftwareDesignTextAdventure
             }
         }
         public void signUp(){
-            Console.WriteLine("Please provide a username and password");
-            Console.Write("Username: ");
-            String username = Console.ReadLine();
-            Console.Write("Password: ");
-            String password = Console.ReadLine();
-
-            User user = new User(username, password);
-            DataAccess.addUser(user);
+            bool wrongInput = true;
+            while(wrongInput){
+                wrongInput = false;
+                Console.WriteLine("Please provide a username and password.");
+                Console.WriteLine("The username and password need to have at least 8-15 characters and may only include digits and characters of the english alphabet.");
+                Console.Write("Username: ");
+                String username = Console.ReadLine();
+                Console.Write("Password: ");
+                String password = Console.ReadLine();
+                Regex regex = new Regex("^[a-zA-Z0-9]{8,15}$");
+                if(!regex.IsMatch(username)){
+                    Console.WriteLine("Username not valid.");
+                    Controller.instance.clear(1000);
+                    wrongInput = true;
+                }
+                if(!regex.IsMatch(password)){
+                    Console.WriteLine("Password not valid.");
+                    Controller.instance.clear(1000);
+                    wrongInput = true;
+                }
+                if(!wrongInput){
+                    User user = new User(username, password);
+                    DataAccess.addUser(user);
+                    Console.WriteLine("Success!");
+                }
+            }
         }
         public void searchAdventure(){
             Console.WriteLine("Please provide the title of the adventure");
@@ -54,7 +73,7 @@ namespace SoftwareDesignTextAdventure
             String title = Console.ReadLine();
 
             Adventure advFound = DataAccess.getAdventure(title);
-            if (advFound.title != null){
+            if (advFound != null){
                 Console.WriteLine("We have found "+advFound.title+" in our database! Do you want to play it?");
                 String answer = Console.ReadLine();
                 if(answer.Equals("Yes")||answer.Equals("yes")||answer.Equals("Y")||answer.Equals("y")){
@@ -67,6 +86,10 @@ namespace SoftwareDesignTextAdventure
         }
         public void showAdventures(){
             List<Adventure> adventureList = DataAccess.getAdventureList();
+            if(adventureList == null){
+                Console.WriteLine("Unfortunately no adventures exist yet. Go make one if you like!");
+                return;
+            }
             int inner;
             int outer = 0;
             List<Adventure> innerList = new List<Adventure>();
@@ -119,6 +142,9 @@ namespace SoftwareDesignTextAdventure
         }
         public void createAdventure(){
             Console.WriteLine("You have to be logged in to create an adventure.");
+        }
+        public void seeStatistic(){
+            Console.WriteLine("You have to be logged in to see the statistics of your adventures.");
         }
     }
 }

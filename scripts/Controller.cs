@@ -10,6 +10,7 @@ namespace SoftwareDesignTextAdventure
         public static iUser currentUser;
         static void Main(string[] args)
         {
+            //UnitTest.registerAndLogin();
             initialize();
             instance.mainMenu();
         }
@@ -22,7 +23,7 @@ namespace SoftwareDesignTextAdventure
             Console.WriteLine("Main Menu                                            Current User: "+currentUser.username);
             Console.WriteLine();
             Console.WriteLine("Would you like to: 'sign in', 'sign up', 'search adventure' or 'show adventures'?");
-            Console.WriteLine("Note: 'create adventure' is reserved for members only");
+            Console.WriteLine("Note: 'create adventure' and 'see statistics' is reserved for members only");
             Console.WriteLine();
             String optionChosen = Console.ReadLine();
             clear(1000);
@@ -42,6 +43,9 @@ namespace SoftwareDesignTextAdventure
                     break;
                 case "create adventure":
                     currentUser.createAdventure();
+                    break;
+                case "see statistics":
+                    currentUser.seeStatistic();
                     break;
                 default:
                     return;

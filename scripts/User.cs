@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 namespace SoftwareDesignTextAdventure
 {
     public class User: NullUser, iUser
@@ -14,10 +13,10 @@ namespace SoftwareDesignTextAdventure
             this.password = password;
         }
         public new void signIn(){
-            Console.WriteLine("You are already signed in, dumb dumb!");
+            Console.WriteLine("You are already signed in.");
         }
         public new void signUp(){
-            Console.WriteLine("You first need to log out!");
+            Console.WriteLine("You first need to log out.");
         }
         public new void createAdventure(){
             Console.WriteLine("Welcome "+Controller.currentUser.username+"! Here you can create your own adventures!");
@@ -59,18 +58,37 @@ namespace SoftwareDesignTextAdventure
             Console.Write("Starting point Y: ");
             String startingYString = Console.ReadLine();
             int startingY;
-            while(!Int32.TryParse(startingXString, out startingX)||startingX<width||startingX>width||
-            !Int32.TryParse(startingYString, out startingY)||startingY<height||startingY>height){
+            while(!Int32.TryParse(startingXString, out startingX)||startingX<1||startingX>width+1||
+            !Int32.TryParse(startingYString, out startingY)||startingY<1||startingY>height+1){
                 Controller.instance.clear(1000);
                 Console.WriteLine("Please try again. The position of the starting point has to be within the adventure dimensions");
-            Console.Write("Starting point X: ");
-            startingXString = Console.ReadLine();
-            Console.Write("Starting point Y: ");
-            startingYString = Console.ReadLine();
+                Console.Write("Starting point X: ");
+                startingXString = Console.ReadLine();
+                Console.Write("Starting point Y: ");
+                startingYString = Console.ReadLine();
             }
-            int[] startingPoint = {startingX, startingY};
-            DataAccess.addAdventure(new Adventure(title, map, Controller.currentUser.username, startingPoint));
+            int[] startingPoint = {startingX-1, startingY-1};
+            int[] size = {width, height};
+            DataAccess.addAdventure((new Adventure(title, map, Controller.currentUser.username, startingPoint, size)));
             Console.WriteLine("Congratulations! '"+title+"' has been created.");
+        }
+        public new void seeStatistic(){
+            Console.WriteLine("Please provide the title of the adventure");
+            Console.Write("Adventure title: ");
+            Console.WriteLine();
+            String title = Console.ReadLine();
+            Adventure adventureFound = DataAccess.getAdventure(title);
+            if(adventureFound == null){
+                Console.WriteLine("Unfortunately the title given was not found.");
+            }
+            else if(!adventureFound.createdBy.Equals(this.username)){
+                Console.WriteLine("You do not own this adventure.");
+            }
+            else{
+                Controller.instance.clear(500);
+                Console.WriteLine("Average time moved: "+adventureFound.statistic.getAverageTimesMoved());
+                Console.WriteLine("Times played: "+adventureFound.statistic.getTimesPlayed());
+            }
         }
     }
 }

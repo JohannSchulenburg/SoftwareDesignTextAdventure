@@ -10,5 +10,6 @@ namespace SoftwareDesignTextAdventure
         void searchAdventure();
         void showAdventures();
         void createAdventure();
+        void seeStatistic();
     }
 }
